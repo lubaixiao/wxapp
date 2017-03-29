@@ -9,7 +9,7 @@ require_once "app/common/commonFunction.php";
 require_once "app/service/service/ServiceCookie.php";
 require_once "app/requires/AppRequire.php";
 
-class WebApp {
+class wxApp {
 
     private $action = null; //下一步执行的动作。
     private $jsonData = null; //下一步执行的动作所需数据
