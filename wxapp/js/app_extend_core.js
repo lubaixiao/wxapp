@@ -24,15 +24,13 @@ $.extend({//统一数据交互
             url: option.url,
             type: "POST",
             data: data,
-            dataType: "json",
+            dataType: "JSON",
             cache: false,
             error: function () {
-                console.log("数据获取失败！");
+                alert("数据获取失败！");
             },
             success: function (json) {
-                if (json) {
-                    option.fun(json);
-                }
+                (json.msg !== undefined) ? alert(json.msg) : option.fun(json);
             }
         });
     }
