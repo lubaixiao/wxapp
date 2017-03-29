@@ -1,0 +1,24 @@
+.score_dvScore{
+    padding-top:50px; 
+}
+.score_tblScore{ 
+    min-width:1000px;
+    border: 0; 
+    padding: 0px;
+    margin: 0px; 
+    border-collapse:collapse; 
+    empty-cells: show
+}
+.score_tblScore tr{ 
+    height:30px;
+    border: 1px solid #09bb07
+}
+.score_tblScore th,td{
+    padding-left:2px;
+    paddong-right:2px;
+    border: 1px solid #09bb07
+}
+
+.score_tblScore th{
+	background-color: #ccccc;
+}

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<title></title>
+		<link rel="stylesheet" href="css/weui.min.css" />
+		<link rel="stylesheet" href="css/jquery-weui.min.css" />
+		<link rel="stylesheet" href="css/example.css" />
+		<link rel="stylesheet" href="css/home.css" />
+		<script src="js/jquery-3.1.0.min.js"></script>
+		<script src="js/jquery-weui.min.js"></script>
+		<script src="js/fastclick.js"></script>
+		<script src="js/hammer.min.js"></script>
+		<script src="js/app_extend_core.js"></script>
+		<script src="js/home.js"></script>
+	</head>
+
+	<body>
+		<div class="container">
+			<div class="weui_tab">
+				<!--div id="main_view">
+					!-- body 顶部加上如下代码 --
+		<div class="weui-pull-to-refresh-layer">
+			<div class="pull-to-refresh-arrow"></div>
+			!-- 上下拉动的时候显示的箭头 --
+			<div class="pull-to-refresh-preloader"></div>
+			!-- 正在刷新的菊花 --
+			<div class="down">下拉刷新</div>
+			<!-- 下拉过程显示的文案 --
+			<div class="up">释放刷新</div>
+			!-- 下拉超过50px显示的文案 --
+			<div class="refresh">正在刷新...</div>
+			<!-- 正在刷新时显示的文案 --
+		</div>
+				</div-->
+				<div id="main" class="weui_tab_bd" style="padding-bottom: 50px;">
+					
+				</div>
+				<div id="home_menu" class="weui_tabbar">
+					<a class="weui_tabbar_item">
+						<div class="weui_tabbar_icon">
+							<img src="./images/icon_nav_cell.png" alt="">
+						</div>
+						<p class="weui_tabbar_label">我</p>
+					</a>
+					<a id="video" class="weui_tabbar_item weui_bar_item_on">
+						<div class="weui_tabbar_icon">
+							<img src="./images/icon_nav_button.png" alt="">
+						</div>
+						<p class="weui_tabbar_label">微视频</p>
+					</a>
+					<a id="score1" class="weui_tabbar_item">
+						<div class="weui_tabbar_icon">
+							<img src="./images/icon_nav_article.png" alt="">
+						</div>
+						<p class="weui_tabbar_label">成绩</p>
+					</a>
+					<a id="bbs" class="weui_tabbar_item">
+						<div class="weui_tabbar_icon">
+							<img src="./images/icon_nav_panel.png" alt="">
+						</div>
+						<p class="weui_tabbar_label">论坛</p>
+					</a>
+					<a  id="live" class="weui_tabbar_item">
+						<div class="weui_tabbar_icon">
+							<img src="./images/icon_nav_search_bar.png" alt="">
+						</div>
+						<p class="weui_tabbar_label">直播</p>
+					</a>
+				</div>
+			</div>
+
+		</div>
+		<div id="loadingToast" class="weui_loading_toast" style="display:none;">
+			<div class="weui_mask_transparent"></div>
+			<div class="weui_toast">
+				<div class="weui_loading">
+					<div class="weui_loading_leaf weui_loading_leaf_0"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_1"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_2"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_3"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_4"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_5"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_6"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_7"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_8"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_9"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_10"></div>
+					<div class="weui_loading_leaf weui_loading_leaf_11"></div>
+				</div>
+				<p class="weui_toast_content">数据加载中</p>
+			</div>
+		</div>
+		<div id="toast" style="display: none;">
+			<div class="weui_mask_transparent"></div>
+			<div class="weui_toast">
+				<i class="weui_icon_toast"></i>
+				<p class="weui_toast_content">已完成</p>
+			</div>
+		</div>
+		<div class="aside" tabindex="1">
+			<aside>
+				<header>
+					<div class="bg up">
+						<h1>XX中心</h1>
+					</div>
+					<div class="bigHeadPortraitBackground">
+						<img src="img/big_head.jpg" alt="">
+					</div>
+					<div class="bg down">
+						<h2>john Smith</h2>
+						<p class="group"><i>Administrator</i></p>
+						<p class="possession">金币：1888888</p>
+					</div>
+				</header>
+				<ul>
+					<li class="menu">
+						<img class="ico" src="img/monitor.png" alt="">
+                        <p onclick="test()">主页</p>
+					</li>
+					<li class="menu">
+						<img class="ico" src="img/heart.png" alt="">
+						<p>我的收藏</p>
+					</li>
+					<li class="menu">
+						<img class="ico" src="img/pencil.png" alt="">
+						<p>帖子</p>
+					</li>
+					<li class="menu">
+						<img class="ico" src="img/tables.png" alt="">
+						<p>关注</p>
+					</li>
+					<li id="score" class="menu">
+						<img class="ico" src="img/area-graph.png" alt="">
+						<p>我的成绩</p>
+					</li>
+					<li class="noMenu">
+						<img class="ico" src="" alt="">
+						<p></p>
+					</li>
+					<li class="menu">
+						<img class="ico" src="img/cog.png" alt="">
+						<p>设置</p>
+					</li>
+					<li id="about_developer" class="menu">
+						<img class="ico" src="img/folder.png" alt="">
+						<p>关于</p>
+					</li>
+				</ul>
+			</aside>
+		</div>
+	</body>
+
+</html>

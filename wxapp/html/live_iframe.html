@@ -1,0 +1,80 @@
+﻿<!doctype html>
+<html>
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no,minimal-ui" />
+		<meta name="format-detection" content="telephone=no" />
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta charset="utf-8">
+		<title>跨平台方案直播方案L2(跨平台多终端适配)</title>
+		<script type="text/javascript" src="../js/jquery-3.1.0.min.js"></script>
+		<script>
+			function goBack(){
+				parent.location.href = "http://online.gxut.edu.cn/cmzx/StudentsMediaCentre.php/Sport_meeting/";
+			}
+		</script>
+	</head>
+
+	<body>
+		<!--header/begin-->
+		<div id="live_view">
+			<div id="live_header">
+				<div class="live_logo">
+					<a href="#"><img src="../images/logo3.png" height="44"></a>
+				</div>
+				<div class="live_info">
+					<a href="#"><img src="../images/search.jpg"></a>
+				</div>
+				<div class="live_other">
+					<a href="#" onclick="goBack();">返回</a>
+				</div>
+			</div>
+			<!--header/end-->
+
+			<!--content/begin-->
+			<div id="live_content">
+
+				<!--L2 CrossPlatform /begin -->
+				<div class="live_video" id="CuPlayer">
+					<SCRIPT LANGUAGE=JavaScript>
+						<!--
+						/*
+						* 跨平台方案X1（基于普通HTTP协议）=============
+						* @param {Object} vID        ID
+						* @param {Object} vWidth     播放器宽度设置
+						* @param {Object} vHeight    播放器高度设置
+						* @param {Object} vFile      播放器配置文件
+						* @param {Object} vPlayer    播放器文件
+						* @param {Object} vPic       视频缩略图
+						* @param {Object} vCssurl    移动端CSS应用文件
+						* @param {Object} vServer    RTMP服务器地址
+						* @param {Object} vMp4url    RTMP视频文件地址
+						* @param {Object} vIosurl    视频文件地址
+
+						* 跨平台方案X1说明=============
+						* 本实例请在IIS/Apache等网站环境下测试
+						* 本实例主要为了实现直播的跨平台
+						* 本实例要求用户有RTMP流媒体环境/并且实现M3u8流
+						*/
+						var vID = "";
+						var vWidth = "100%"; //播放器宽度设置
+						var vHeight = 400; //播放器高度设置
+						var vFile = ""; //播放器配置文件
+						var vPlayer = ""; //播放器文件
+						var vPic = "../images/start.jpg"; //视频缩略图
+						var vCssurl = "../css/live.css"; //移动端CSS应用文件
+						//PC端
+						var vServer = ""; //RTMP直播服务器地址
+						var vMp4url = ""; //RTMP视频文件地址
+						//安卓端,iOS端,wp(以下地址为m3u8地址)
+						var vIosurl = parent.liveData.url; //视频文件地址
+						//console.log(parent.liveData.url);
+						//-->
+					</SCRIPT>
+					<script class="CuPlayerVideo" data-mce-role="CuPlayerVideo" type="text/javascript" src="../js/CuSunL2.min.js"></script>
+				</div>
+			</div>
+			<!--content/end-->
+		</div>
+	</body>
+
+</html>

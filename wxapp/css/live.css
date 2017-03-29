@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+/* header --------------------- */
+div#live_header { height:44px; background:#2d2e2f; border-bottom:1px #000000 solid; overflow:hidden;}
+div.live_logo {width:120px;float:left;}
+
+div.live_info {width:45px;float:right;}
+div.live_other {width:85px;float:right; line-height:44px;}
+div.live_other a,.live_other a:link,.live_other a:visited { display:block; line-height:44px; color:#cccccc; font-size:14px;}
+
+/* content --------------------- */
+div#live_content { background:#ffffff;}
+div#live_content div#CuPlayer { }
+div#live_content h3 { line-height:40px; height:40px; background:#cccccc; border-top:2px #515151 solid;}
+div#live_content h3 span { padding-left:20px;}
+div.live_video {  background:#000000; OVERFLOW: hidden; WIDTH: 100%; POSITION: relative}

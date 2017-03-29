@@ -9,7 +9,6 @@
  * 将字符串以JSON数据格式返回
  */
 function rJsonMsg($data) {
-    $GLOBALS['pdo'] = null;
     echo json_encode(array("msg" => $data));
     exit;
 }
@@ -18,7 +17,6 @@ function rJsonMsg($data) {
  * 将数组以JSON数据格式返回
  */
 function rJsonArray($arr) {
-    $GLOBALS['pdo'] = null;
     echo json_encode($arr);
     exit;
 }

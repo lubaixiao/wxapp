@@ -1,0 +1,134 @@
+
+.test {
+	width: 100%;
+	height: 50%;
+	background: #ffd800;
+	text-align: left
+}
+
+.result {
+	width: 100%;
+	background: #b6ff00;
+	text-align: left
+}
+.aside{
+	position:absolute;
+	top:0;
+	left:-60%;
+	width: 60%;
+	height: 100%;
+	overflow-y: auto;
+	background: #32323a 
+}
+
+aside>header{
+	width: 100%;
+	height:200px
+}
+aside>header>.bg{
+	width: 100%;
+	height: 50%;
+	text-align:center
+}
+aside>header>.up{
+	background-color:#28282e
+}
+aside>header>.down{
+	margin-top:-66px ;
+	background-color:#32323a;
+	overflow:hidden
+}
+aside>header>.up>h1{
+	color:#2ca965;
+	font-size:20px;
+	font-weight: normal;
+	position:relative;
+	top:10px
+}
+aside>header>.bigHeadPortraitBackground{
+        position:relative;
+        top:-55px;
+	width: 100px;
+	height:100px;
+	margin-left: auto;
+	margin-right: auto;
+	border-radius:50%;
+        border:4px solid #3b3b43;
+	text-align:center;
+        background-color: #ffffff
+}
+
+aside>header>.bigHeadPortraitBackground>img{
+	width:90px;
+	height:90px;
+        margin-top:5px; 
+	border-radius:50%;
+	z-index: 11
+}
+aside>header>.down>h2{
+	color:#fff;
+	font-size:12px;
+	font-weight:normal;
+	display: block;
+	margin-top: 10px;
+}
+aside>header>.down>.group{
+	color:#cccccc;
+	font-size: 12px;
+	line-height: 16px
+}
+aside>header>.down>.possession{
+	color:#fff08e;
+	font-size:10px;
+	line-height:12px
+}
+aside>ul{
+	width: 100%;
+
+}
+aside>ul>.menu,aside>ul>.noMenu{
+	width:100%;
+	height:30px;
+	border-bottom:1px solid #3b3b43;
+	overflow:hidden;
+	list-style:none
+}
+aside>ul>.menu:hover{
+	background: #535361;
+}
+aside>ul>li>.ico{
+	width: 20px;
+	height: 20px;
+	float: left;
+	margin-left: 20px;
+	margin-top:5px;
+}
+aside>ul>li>p{
+	float: left;
+	font-size:16px;
+	margin-left:20px;
+	margin-top:5px;
+	line-height:20px;
+	color: #95a0aa
+}
+
+.dvScore{
+    padding-top:50px; 
+}
+.tblScore{ 
+    min-width:1000px;
+    border: 0; 
+    padding: 0px;
+    margin: 0px; 
+    border-collapse:collapse; 
+    empty-cells: show
+}
+.tblScore tr{ 
+    height:30px;
+    border: 1px solid #09bb07
+}
+.tblScore  th,td{
+    padding-left:2px;
+    paddong-right:2px;
+    border: 1px solid #09bb07
+}
