@@ -15,10 +15,17 @@ class AppRequireController {
     }
 
     public function loadRequires() {
+        appLogs($this->action);
         $load = FALSE;
         switch ($this->action) {
             case "Login":
                 include_once "LoginRequire.php";
+                $load = TRUE;
+                break;
+            case "getHtml":
+                include_once "app/service/IService/IServiceController.php";
+                include_once "app/service/ServiceController.php";
+                include_once "app/service/HtmlCreaterSevice.php";
                 $load = TRUE;
                 break;
         }

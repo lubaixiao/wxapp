@@ -9,12 +9,15 @@ class ServiceController implements IServiceController {
      */
     function __construct($jsonData) {
         $this->jsonData = $jsonData;
-        $this->checkOrLoadConfigue();
+        // $this->checkOrLoadConfigue();
+    }
+
+    public function getHtml() {
+        return rJsonArray($this->jsonData);
     }
 
     /**
      * 加载数据库配置信息
-     */
     private function checkOrLoadConfigue() {
         $conf_path = "app/configue/configue.php";
         if (file_exists($conf_path)) {
@@ -23,11 +26,13 @@ class ServiceController implements IServiceController {
             rJsonMsg("未创建系统所需数据库!");
         }
     }
-
-    public function getUserList() {
+     *   public function getUserList() {
         $userInfoDao = new UserInfoDao();
         return rJsonArray($userInfoDao->getAllData());
     }
+     */
+
+  
 
    /* public function getLiveOnline() {
         $serviceCookie = new ServiceCookie();
@@ -67,14 +72,16 @@ class ServiceController implements IServiceController {
         } else {
             return rJsonArray(array("url" => 100, "online" => $online, "count" => $count));
         }
-    }*/
-
-    public function userRegister() {
+    }
+    *  public function userRegister() {
         $userInfoDao = new UserInfoDao();
         $arr = array("kingw2", "1234567", "n", "张三", "http://www.htamg.com/img.jpg", "2016-10-04", "12345678909", "0", "2016-10-11");
         $userInfoDao->setInsertOneData($arr);
         $userInfoDao->addOne();
     }
+    */
+
+   
 
 //  /**
 //   * 用户登录

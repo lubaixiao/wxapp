@@ -1,7 +1,7 @@
 <?php
 require_once "app/common/commonFunction.php";
 require_once "app/requires/AppRequireController.php";
-require_once "app/service/ServiceController.php";
+
 
 /**
  * author : 陆佰晓(kinglu)
@@ -38,17 +38,16 @@ class wxApp {
     private function setDataByPost() {
         if (is_string($_POST) || isset($_POST["jsonData"])) {//是否存在"jsonData"的参数
             $this->jsonData = $_POST["jsonData"];
-        } else {
-            rJsonMsg("拒绝访问！");
         }
     }
 
     public function run() {
-        $require = new AppRequireController();
+        $action = $this->action;
+        $require = new AppRequireController($action);
         if ($require->loadRequires()) {
             $service = new ServiceController($this->jsonData);
-            $action = $this->action;
             if (is_callable(array($service, $action))) {
+                appLogs("service!");
                 $service->$action();
             } else {
                 rJsonMsg("访问为非法，拒绝访问！");

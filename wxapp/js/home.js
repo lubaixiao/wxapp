@@ -225,7 +225,7 @@ function mianMeunShow() {
 
 function test() {
     var json = {"user":"king","pwd":"123456","arr":Array(1,2,3,4)};
-    var url = "webAction.php?action=login";
+    var url = "webAction.php?action=getHtml";
     $.myAjax({
         url: url,
         data: json,

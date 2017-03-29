@@ -1,12 +1,15 @@
 <?php
+/**
+ * 服务接口声明
+ */
 
 interface IServiceController {
 
+    public function getHtml();
     //获取用户列表
-    public function getUserList();
-
+//    public function getUserList();
     //注册
-    public function userRegister();
+    //   public function userRegister();
 //  //登录
 //  public function userLogin();
 //  //上传文件
