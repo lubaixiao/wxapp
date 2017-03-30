@@ -28,6 +28,12 @@ class AppRequireController {
                 include_once "app/service/HtmlCreaterSevice.php";
                 $load = TRUE;
                 break;
+            case "weChat":
+                include_once "app/service/IService/IServiceController.php";
+                include_once "app/service/ServiceController.php";
+                include_once "app/service/weChatCallbackAPI.php";
+                $load = TRUE;
+                break;
         }
         return $load;
     }

@@ -7,81 +7,102 @@ class ServiceController implements IServiceController {
     /**
      * 使用的构造方法初始化服务所需的数据
      */
+
     function __construct($jsonData) {
         $this->jsonData = $jsonData;
         // $this->checkOrLoadConfigue();
     }
 
+    /**
+     * 获取指定的html页面数据
+     */
     public function getHtml() {
         return rJsonArray($this->jsonData);
     }
 
     /**
-     * 加载数据库配置信息
-    private function checkOrLoadConfigue() {
-        $conf_path = "app/configue/configue.php";
-        if (file_exists($conf_path)) {
-            include($conf_path);
+     * 微信API接口
+     */
+    public function weChat() {
+        header("Content-type: text/xml; charset=utf-8");
+        define("TOKEN", "weixin");
+        if (is_string($_SERVER["REMOTE_ADDR"])) {
+            $ip = $_SERVER["REMOTE_ADDR"];
+            $clientMsg = file_get_contents("http://int.dpool.sina.com.cn/iplookup/iplookup.php?format=json&ip={$ip}");
+            $arr = json_decode($clientMsg, true);
+            appLogs("请求信息： 所属地：" . $arr["country"] . $arr["province"] . $arr["city"] . " ip地址： " . $ip);
+        }
+        $wechatAPI = new weChatCallbackAPI();
+        if (getDataByGET("echostr")) {
+            $wechatAPI->valid(); //token验证
         } else {
-            rJsonMsg("未创建系统所需数据库!");
+            $wechatAPI->responseMsg();//服务
         }
     }
+
+    /**
+     * 加载数据库配置信息
+      private function checkOrLoadConfigue() {
+      $conf_path = "app/configue/configue.php";
+      if (file_exists($conf_path)) {
+      include($conf_path);
+      } else {
+      rJsonMsg("未创建系统所需数据库!");
+      }
+      }
      *   public function getUserList() {
-        $userInfoDao = new UserInfoDao();
-        return rJsonArray($userInfoDao->getAllData());
-    }
+      $userInfoDao = new UserInfoDao();
+      return rJsonArray($userInfoDao->getAllData());
+      }
+     */
+    /* public function getLiveOnline() {
+      $serviceCookie = new ServiceCookie();
+      $liveOnlineDao = new LiveOnlineDao();
+
+      //直播地址
+      $new_time = time();
+      $url = "http://live.kinglbx.cn/AppName/StreamName.m3u8?auth_key=1478189745-0-0-6603c0b72176b46af30bf09a3928b3b4";
+      $online = $liveOnlineDao->getCount();
+      //检查是否有过期的链接
+      $count = $liveOnlineDao->getMax("count");
+      $liveOnlineDao->deleteSomeByGreater("time_char", ($new_time - 10));
+      //检查是否到达负载极限
+
+      if ($online < 100) {
+      //检查登录状态，没有登录取时间置为登录
+      $user_id = $serviceCookie->getCookie("time_char");
+      if (!$user_id) {
+      //新增数据库的time_char
+      //echo "新增";
+      $serviceCookie->registerCookie("time_char", $new_time, $new_time + 3600);
+      $liveOnlineDao->setInsertOneData(array($new_time, $new_time, ($count + 1)));
+      $liveOnlineDao->addOne();
+      } else {
+      //新增、更新数据库的time_char
+      if ($liveOnlineDao->getOneBykey("online_id", $user_id) == null) {
+      //echo "有cookie新增";
+      $liveOnlineDao->setInsertOneData(array($user_id, $new_time, ($count + 1)));
+      $liveOnlineDao->addOne();
+      } else {
+      //echo "有cookie更改";
+      $liveOnlineDao->modifyOneByKey("time_char", $new_time, "online_id", $user_id);
+      $liveOnlineDao->modifyOneByKey("count", $count, "online_id", $user_id);
+      }
+      }
+      return rJsonArray(array("url" => $url, "online" => $online, "count" => $count));
+      } else {
+      return rJsonArray(array("url" => 100, "online" => $online, "count" => $count));
+      }
+      }
+     *  public function userRegister() {
+      $userInfoDao = new UserInfoDao();
+      $arr = array("kingw2", "1234567", "n", "张三", "http://www.htamg.com/img.jpg", "2016-10-04", "12345678909", "0", "2016-10-11");
+      $userInfoDao->setInsertOneData($arr);
+      $userInfoDao->addOne();
+      }
      */
 
-  
 
-   /* public function getLiveOnline() {
-        $serviceCookie = new ServiceCookie();
-        $liveOnlineDao = new LiveOnlineDao();
-
-        //直播地址
-        $new_time = time();
-        $url = "http://live.kinglbx.cn/AppName/StreamName.m3u8?auth_key=1478189745-0-0-6603c0b72176b46af30bf09a3928b3b4";
-        $online = $liveOnlineDao->getCount();
-        //检查是否有过期的链接
-        $count = $liveOnlineDao->getMax("count");
-        $liveOnlineDao->deleteSomeByGreater("time_char", ($new_time - 10));
-        //检查是否到达负载极限
-
-        if ($online < 100) {
-            //检查登录状态，没有登录取时间置为登录
-            $user_id = $serviceCookie->getCookie("time_char");
-            if (!$user_id) {
-                //新增数据库的time_char
-                //echo "新增";
-                $serviceCookie->registerCookie("time_char", $new_time, $new_time + 3600);
-                $liveOnlineDao->setInsertOneData(array($new_time, $new_time, ($count + 1)));
-                $liveOnlineDao->addOne();
-            } else {
-                //新增、更新数据库的time_char
-                if ($liveOnlineDao->getOneBykey("online_id", $user_id) == null) {
-                    //echo "有cookie新增";
-                    $liveOnlineDao->setInsertOneData(array($user_id, $new_time, ($count + 1)));
-                    $liveOnlineDao->addOne();
-                } else {
-                    //echo "有cookie更改";
-                    $liveOnlineDao->modifyOneByKey("time_char", $new_time, "online_id", $user_id);
-                    $liveOnlineDao->modifyOneByKey("count", $count, "online_id", $user_id);
-                }
-            }
-            return rJsonArray(array("url" => $url, "online" => $online, "count" => $count));
-        } else {
-            return rJsonArray(array("url" => 100, "online" => $online, "count" => $count));
-        }
-    }
-    *  public function userRegister() {
-        $userInfoDao = new UserInfoDao();
-        $arr = array("kingw2", "1234567", "n", "张三", "http://www.htamg.com/img.jpg", "2016-10-04", "12345678909", "0", "2016-10-11");
-        $userInfoDao->setInsertOneData($arr);
-        $userInfoDao->addOne();
-    }
-    */
-
-   
 
 //  /**
 //   * 用户登录

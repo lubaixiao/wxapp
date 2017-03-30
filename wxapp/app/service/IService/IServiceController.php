@@ -5,7 +5,10 @@
 
 interface IServiceController {
 
+    //获取指定的html页面数据
     public function getHtml();
+    //微信API接口
+    public function weChat();
     //获取用户列表
 //    public function getUserList();
     //注册
