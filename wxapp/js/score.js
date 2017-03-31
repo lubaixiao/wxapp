@@ -29,14 +29,14 @@ function getScoreNewColunms() {
 }
 
 function getScoreData() {
-    var url = "chengjiList.php";
+    var url = "webAction.php?action=getScore";
     $.myAjax({url: url, fun: dealScoreData});
 }
 
 function dealScoreData(json) {
 	//alert(JSON.stringify(json));
-    $("#score_jidian").val(json[0]);
-    var cj = json[1];
+    $("#score_jidian").val(json.data[0]);
+    var cj = json.data[1];
     var str = "";
     for (var i = 0; i < cj.length; i++) {
         var e = cj[i];

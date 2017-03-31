@@ -17,9 +17,9 @@ class HtmlCreaterService {
 
     function getHtmlStr() {
         if (file_exists($this->htmlSrc)) {
-            $this->htmlStr = file_get_contents($this->htmlSrc);
-            rJsonArray(array("data" => $this->htmlStr));
+           return $this->htmlStr = file_get_contents($this->htmlSrc);
+        }else{
+           return false;
         }
     }
-
 }

@@ -25,13 +25,19 @@ class AppRequireController {
             case "getHtml":
                 include_once "app/service/IService/IServiceController.php";
                 include_once "app/service/ServiceController.php";
-                include_once "app/service/HtmlCreaterSevice.php";
+                include_once "app/service/HtmlCreater.php";
                 $load = TRUE;
                 break;
             case "weChat":
                 include_once "app/service/IService/IServiceController.php";
                 include_once "app/service/ServiceController.php";
                 include_once "app/service/weChatCallbackAPI.php";
+                $load = TRUE;
+                break;
+             case "getScore":
+                include_once "app/service/IService/IServiceController.php";
+                include_once "app/service/ServiceController.php";
+                include_once "app/service/ScoreData.php";
                 $load = TRUE;
                 break;
         }

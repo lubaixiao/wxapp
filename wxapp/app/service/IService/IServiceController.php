@@ -9,6 +9,8 @@ interface IServiceController {
     public function getHtml();
     //微信API接口
     public function weChat();
+    //获取成绩
+    public function getScore();
     //获取用户列表
 //    public function getUserList();
     //注册

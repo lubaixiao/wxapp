@@ -17,7 +17,9 @@ class ServiceController implements IServiceController {
      * 获取指定的html页面数据
      */
     public function getHtml() {
-        return rJsonArray($this->jsonData);
+        $htmlCreater = new HtmlCreaterService($this->jsonData);
+        $htmlStr = $htmlCreater->getHtmlStr();
+        ($htmlStr !== false) ? rJsonArray($htmlStr) : rJsonMsg("未找到！");
     }
 
     /**
@@ -36,8 +38,17 @@ class ServiceController implements IServiceController {
         if (getDataByGET("echostr")) {
             $wechatAPI->valid(); //token验证
         } else {
-            $wechatAPI->responseMsg();//服务
+            $wechatAPI->responseMsg(); //服务
         }
+    }
+    
+     /**
+     * 获取成绩数据
+     */
+    public function getScore() {
+        $scoreData = new ScoreData();
+        $score = $scoreData->run();
+        rJsonArray($score);
     }
 
     /**

@@ -1,70 +1,78 @@
 <!DOCTYPE html>
 <html>
 
-	<head>
-		<meta charset="utf-8" />
-		<title>【柳苑晨曦】微信开发者后台</title>
-		<link rel="stylesheet" href="css/bootstrap.min.css" />
-		<link rel="stylesheet" href="css/bootstrap-theme.min.css" />
-		<script type="text/javascript" src="../js/jquery-3.1.0.min.js" ></script>
-		<script type="text/javascript" src="js/admin.js" ></script>
- 	</head>
+    <head>
+        <meta charset="utf-8" />
+        <title>【柳苑晨曦】微信开发者后台</title>
+        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="css/bootstrap-theme.min.css" />
+        <script type="text/javascript" src="../js/jquery-3.1.0.min.js" ></script>
+        <script type="text/javascript" src="js/admin.js" ></script>
+    </head>
 
-	<body>
-		<div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%">
-			<img src="img/bg01.jpg" width="100%" height="100%" />
-		</div>
-
-		<div class="container col-lg-12">
-			<div class="col-lg-2">
-				<div class="panel panel-default">
-					<div class="panel-heading"><h3 class="text-center"><span class="glyphicon glyphicon-home"></span>媒体中心</h3></div>
-					<div class="panel-body">
-						<div class="panel-body bg-info">
-								<button id="wenzhang" type="button" class="btn btn-default col-lg-12"><span class="glyphicon glyphicon-list-alt"></span>&ensp;发布文章</button>
-								<div id="wenzhang_meun" class="btn-group-vertical" style="display: none;">
-									<input type="button" class="btn btn-default" value="科大官方微信" />
-									<input type="button" class="btn btn-default" value="传媒中心微信" />
-									<input type="button" class="btn btn-default" value="官方公告" />
-									<input type="button" class="btn btn-default" value="校内新闻" />
-								</div>
-								   
-						</div>
-						<div class="panel-body bg-info">
-								<button id="vidio" type="button" class="btn btn-default col-lg-12"><span class="glyphicon glyphicon-facetime-video"></span>&ensp;视频中心</button>
-								<div id="vidio_meun" class="btn-group-vertical" style="display: none;">
-									<input type="button" class="btn btn-default" value="科大名人" />
-								    <input type="button" class="btn btn-default" value="街访" />
-								    <input type="button" class="btn btn-default" value="社团活动" />
-								</div>
-						</div>
-						<div class="panel-body bg-info">
-								<button id="caidan" type="button" class="btn btn-default col-lg-12"><span class="glyphicon glyphicon-phone"></span>&ensp;微信菜单</button>
-								<ul  id="caidan_meun"class="list-unstyled"  style="display: none;">
-								    <input type="button" class="btn btn-default" value="设置菜单" />
-								</ul>
-						</div>
-					</div>
-				</div>	
-			</div>
-			<div class="col-lg-10">
-				<div class="panel panel-default">
-					<div class="panel-heading col-lg-12">
-						<div class="col-lg-11" style="color:green; "><h4>欢迎使用</h4></div>
-						<div class="col-lg-1 text-right"><span class="glyphicon glyphicon-user">admin</span></div>
-					</div>
-					<div class="panel-body col-lg-12" style="height:600px;background-color:#ffffff;;">
-						<iframe frameborder="0" src="caidan.html" width="100%" height="600px" > </iframe>
-					</div>
-					<div class="panel-footer col-lg-12">
-						<div class="container-fluid text-center">
-							Copyright ©2016-2017 广西科技大学 柳苑晨曦网站 版权所有 Powered by GXUT OnLine All Rights Reserved 
-							主管部门：广西科技大学党委宣传部 联系电话：0772-2686672　0772-2688790　　E-mail：qsyweb@126.com
-					    </div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</body>
+    <body>
+        <div style="position: fixed; top: 0px; left: 0px; width: 100%; height: 100%">
+            <img src="images/bg01.jpg" style="width: 100%; height: 100%;" alt="" />
+        </div>
+        <div class="container col-lg-12">
+            <div class="col-lg-2">
+                <div class="panel panel-default">
+                    <div class="panel-heading" style="background:#6194DF; border-color: #6194DF;"><img src="images/logo_all.png" alt="" /></div>
+                    <div class="panel-body">
+                        <div class="panel-body bg-info">
+                            <div class="btn-group-vertical" style="width: 100%">
+                                <button id="article" type="button" class="btn btn-default col-lg-12"><span class="glyphicon glyphicon-list-alt"></span>&ensp;文章管理</button>
+                            </div>
+                            <div id="article_lb" class="list-group" style="display: none;">
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('aeditor.html')">编辑文章</a>
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('acheck.html')">审核发布</a>		
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('aclassify.html')">栏目设置</a>	
+                            </div>
+                        </div>
+                        <div class="panel-body bg-info">
+                            <div class="btn-group-vertical" style="width: 100%">
+                                <button id="video" type="button" class="btn btn-default col-lg-12"><span class="glyphicon glyphicon-list-alt"></span>&ensp;视频中心</button>
+                            </div>
+                            <div id="video_lb" class="list-group" style="display: none;">
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('veditor.html')">编辑视频</a>
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('vcheck.html')">审核视频</a>		
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('vclassify.html')">模块设置</a>	
+                            </div>
+                        </div>
+                        <div class="panel-body bg-info">
+                            <div class="btn-group-vertical" style="width: 100%">
+                                <button id="wechat" type="button" class="btn btn-default col-lg-12"><span class="glyphicon glyphicon-list-alt"></span>&ensp;微信开发</button>
+                            </div>
+                            <div id="wechat_lb" class="list-group" style="display: none;">
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('wconfiguration.html')">配置信息</a>
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('wresponse.html')">自动回复</a>		
+                                <a class="list-group-item" onclick="javascript:changeIfrmSrc('wmenu.html')">自定义菜单</a>	
+                            </div>
+                        </div>
+                    </div>
+                </div>	
+            </div>
+            <div class="col-lg-10">
+                <div class="panel panel-default">
+                    <div class="panel-heading col-lg-12">
+                        <div class="col-lg-9" ><h4 style="color:green;">欢迎使用</h4><p id="postion">位置：首页<p></div>
+                        <div class="col-lg-3" style="text-align:right">
+                            <span class="glyphicon glyphicon-user">&ensp;&ensp;[admin]</span>
+                            <span style="color:red; cursor:pointer;" onclick="javascript:logout()">[安全退出]</span>
+                        </div>
+                    </div>
+                    <div class="panel-body col-lg-12" style="height:600px;background-color:#ffffff;;">
+                        <iframe frameborder="0" src="home.html"  style="width: 100%; height: 600px;"> </iframe>
+                    </div>
+                    <div class="panel-footer col-lg-12">
+                        <div class="container-fluid text-center">
+                            Copyright ©2016-2017 广西科技大学 柳苑晨曦网站 版权所有 Powered by GXUT OnLine All Rights Reserved 
+                            主管部门：广西科技大学党委宣传部 联系电话：0772-2686672　0772-2688790　　E-mail：qsyweb@126.com
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 
 </html>

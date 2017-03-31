@@ -1,12 +1,11 @@
 $(document).ready(function(){
-	$("#wenzhang").click(function(){
-		$("#wenzhang_meun").slideToggle();
+	$("#article").click(function(){
+		$("#article_lb").slideToggle();
 	});
-	$("#caidan").click(function(){
-		$("#caidan_meun").slideToggle();
+    $("#wechat").click(function(){
+		$("#wechat_lb").slideToggle();
 	});
-	$("#vidio").click(function(){
-		$("#vidio_meun").slideToggle();
+	$("#video").click(function(){
+		$("#video_lb").slideToggle();
 	});
-	
 });

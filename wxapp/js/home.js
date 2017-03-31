@@ -16,9 +16,9 @@ $(document).ready(function () {
     $(".aside").blur(function () {
         $(".weui_tabbar>a").unbind("click");
         $(this).animate({
-            left: '-60%'
+            left: '-60%',speed:100
         });
-        setTimeout("setTabbar()", 500);
+        setTimeout("setTabbar()", 100);
     });
     $.hevent({
         obj: $("#score"),
@@ -47,14 +47,13 @@ $(document).ready(function () {
     //		alert("刷新了！");
     //		$(document.body).pullToRefreshDone();
     //	});
-
 });
 
 function setTabbar() {
     $(".weui_tabbar>a").click(function () {
         if ($(this).index() === 0) {
             $(".aside").animate({
-                left: '0%'
+                left: '0%',speed:100
             });
             $(".aside").focus();
         } else {
@@ -153,7 +152,7 @@ function goView(key_word, view_val) {
         left: '-60%'
     });
     if (view_val === "") {
-        var url = "htmlCreater.php";
+        var url = "webAction.php?action=getHtml";
         var json = {
             "need": key_word
         };
@@ -224,7 +223,7 @@ function mianMeunShow() {
 }
 
 function test() {
-    var json = {"user":"king","pwd":"123456","arr":Array(1,2,3,4)};
+    var json = {"user": "king", "pwd": "123456", "arr": Array(1, 2, 3, 4)};
     var url = "webAction.php?action=getHtml";
     $.myAjax({
         url: url,

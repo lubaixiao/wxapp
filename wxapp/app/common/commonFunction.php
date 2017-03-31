@@ -20,7 +20,7 @@ function rJsonMsg($data) {
 function rJsonArray($arr) {
     /*输出的数据设置格式为json*/
     header("Content-type: text/json; charset=utf-8"); 
-    echo json_encode($arr);
+    echo json_encode(array("data"=>$arr));
     exit;
 }
 
