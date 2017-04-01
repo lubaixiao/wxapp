@@ -4,7 +4,7 @@
  * 用户文件资源的DAO
  * @author kinglu
  */
-class FileInfoDao extends BaseDaoImpl {
+class FileInfoDao extends BaseDAOImpl {
 
     /**
      * 初始化数据

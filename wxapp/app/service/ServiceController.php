@@ -41,13 +41,28 @@ class ServiceController implements IServiceController {
             $wechatAPI->responseMsg(); //服务
         }
     }
-    
-     /**
-     * 获取成绩数据
+
+    /**
+     * 获取成绩数据，并返回成绩
      */
-    public function getScore() {
+    public function getScore() {     
+        $studentScore = new StudentScoreDAO();
+        $sqlscore = $studentScore->getOneBykey("sid",1);
+        $score[0] = $sqlscore["point"];
+        $score[1] = stringToArrays($sqlscore["score_data"],14);
+        rJsonArray($score);
+    }
+    
+    /**
+     * 更新成绩数据，并返回成绩
+     */
+    function upDateScore() {
+        $loginUser = new LoginUser(array("201300406179","king","小耀","123456"));
+        rJsonMsg($loginUser->getRealName());
         $scoreData = new ScoreData();
         $score = $scoreData->run();
+        $studentScore = new StudentScoreDAO();
+        $studentScore->addOne(array("201300406179", $score[0],arraysToString($score[1])));
         rJsonArray($score);
     }
 

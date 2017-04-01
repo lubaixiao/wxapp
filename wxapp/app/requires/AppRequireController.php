@@ -34,10 +34,12 @@ class AppRequireController {
                 include_once "app/service/weChatCallbackAPI.php";
                 $load = TRUE;
                 break;
-             case "getScore":
-                include_once "app/service/IService/IServiceController.php";
-                include_once "app/service/ServiceController.php";
-                include_once "app/service/ScoreData.php";
+            case "getScore":
+                include_once "app/requires/sqlBaseRequires.php";
+                $load = TRUE;
+                break;
+            case "upDateScore":
+                include_once "app/requires/sqlBaseRequires.php";
                 $load = TRUE;
                 break;
         }

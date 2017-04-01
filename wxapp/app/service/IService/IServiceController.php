@@ -11,6 +11,8 @@ interface IServiceController {
     public function weChat();
     //获取成绩
     public function getScore();
+    //获取成绩
+    public function upDateScore();
     //获取用户列表
 //    public function getUserList();
     //注册

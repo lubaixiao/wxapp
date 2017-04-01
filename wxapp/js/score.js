@@ -51,35 +51,8 @@ function dealScoreData(json) {
     $("#toast").css("display", "block");
     setTimeout("$(\"#toast\").css(\"display\",\"none\")", 1000);
 }
-/*
-function setScoreColunm() {
-    $("#score_colnums").css("display", "block");
-}
-
-function getScoreColunms() {
-	theader = [];
-    $("#score_theader input[name='theader']:checked").each(function(){
-    	theader.push($(this).val());
-    });
-   // $("#score_tbl>thead>tr>th").eq(0).css("display","block");
-    console.log(theader);
-}
-
-function getScoreNewColunms() {
-	theader = [];
-    $("#score_colnums").css("display", "none");
-    $("#score_theader input[name='theader']:checked").each(function(){
-    	theader.push($(this).val());
-    });
-    console.log(theader);
-    for(var i in theader ){
-		$("#score_tbl>thead>th").eq(theader[i]).css("display","block");
-	}
-}*/
-
 
 function initScore() {
-
 	$("#score_model").select({
 		title: "选择模式",
 		autoClose: true,
@@ -192,45 +165,6 @@ function getSelectValues(){
 	if($("#score_tablestyle").data("values")!==undefined){
 		score_setting.tablestyle = $("#score_tablestyle").data("values");
 	};
+    console.log(score_setting);
 	mianMeunShow();
-}
-
-function setTongji(){
-	var str = "<div style=\"width:90%\"><canvas id=\"myChart\"></canvas></div>";
-	 $("#score_view").html(str);
-	var data = {
-    labels: [
-        "公修",
-        "必修",
-        "选修",
-		"实践"
-    ],
-    datasets: [
-        {
-            data: [300, 50, 100, 70],
-            backgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56",
-				"#CCCCCC"
-            ],
-            hoverBackgroundColor: [
-                "#FF6384",
-                "#36A2EB",
-                "#FFCE56",
-				"#CCCCCC"
-            ]
-        }]
-	};
-	var ctx = document.getElementById("myChart");
-	var myPieChart = new Chart(ctx,{
-   	 type:'doughnut',
-		/*type: 'pie',*/
-   	 	data: data,
-   	 	options: {
-		animation:{
-        animateScale:false,
-		animateRotate:true
-    	}}
-	});
 }

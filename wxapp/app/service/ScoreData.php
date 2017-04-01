@@ -11,12 +11,13 @@ class ScoreData {
 
     public function run() {
         $loginOutput = $this->curlLogin($this->url[0], $this->post_data);
-        $fp = fopen("1234.txt", "a");fwrite($fp, $loginOutput);fclose($fp);
+        $fp = fopen("1234.txt", "a");
+        fwrite($fp, $loginOutput);
+        fclose($fp);
         $cookie_start = strpos($loginOutput, "PHPSESSID");
         $cookie_len = strpos($loginOutput, "path=/") + 6 - $cookie_start;
         $this->set_cookie = substr($loginOutput, $cookie_start, $cookie_len);
-        
-        $dataOutput =  $this->curlGetData($this->url[1], $this->set_cookie);
+        $dataOutput = $this->curlGetData($this->url[1], $this->set_cookie);
         $outputCopy = $dataOutput;
         $jidian_start = strpos($outputCopy, "<!--jidian-start-->");
         $jidian_end = strpos($outputCopy, "<!--jidian-end-->");
@@ -31,14 +32,14 @@ class ScoreData {
         }
         return array($jidian, $score_data);
     }
-    
+
     /**
      * post登录成绩查询系统
      * @param type $url
      * @param type $data
      * @return type
      */
-    function curlLogin($url = "", $data = array()){
+    private function curlLogin($url = "", $data = array()) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url); //要访问的地址
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //执行结果是否被返回，0是返回，1是不返回
@@ -49,16 +50,15 @@ class ScoreData {
         $output = curl_exec($ch); //执行并获取数据
         curl_close($ch);
         return $output;
-       
     }
-    
+
     /**
      * 在登陆后的成绩显示界面获取数据
      * @param type $url
      * @param type $set_cookie
      * @return type
      */
-    function curlGetData($url = "", $set_cookie = array()){
+    private function curlGetData($url = "", $set_cookie = array()) {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $url); //要访问的地址
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1); //执行结果是否被返回，0是返回，1是不返回
