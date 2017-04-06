@@ -3,6 +3,7 @@
 class ServiceController implements IServiceController {
 
     private $jsonData = null; //前台提交的数据
+    private $loginUser = null;
 
     /**
      * 使用的构造方法初始化服务所需的数据
@@ -10,7 +11,7 @@ class ServiceController implements IServiceController {
 
     function __construct($jsonData) {
         $this->jsonData = $jsonData;
-        // $this->checkOrLoadConfigue();
+        $this->loginUser = new LoginUser(array("001","king","陆佰晓","15994551509"));
     }
 
     /**
@@ -56,8 +57,9 @@ class ServiceController implements IServiceController {
     /**
      * 更新成绩数据，并返回成绩
      */
-    function upDateScore() {      
-        rJsonMsg($loginUser->getRealName());
+    function upDateScore() { 
+        
+        rJsonMsg($this->loginUser->getRealName());
         $scoreData = new ScoreData();
         $score = $scoreData->run();
         $studentScore = new StudentScoreDAO();

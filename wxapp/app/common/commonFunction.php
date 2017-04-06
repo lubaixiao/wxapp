@@ -1,5 +1,4 @@
 <?php
-
 /**
  * 常用的自定义全局函数
  * author : 陆佰晓
@@ -45,7 +44,7 @@ function appLogs($log) {
  * @return type
  */
 function getDataByGET($str = "action") {
-    if (is_string($_GET[$str]) || isset($_GET[$str])) {
+    if (isset($_GET[$str])) {
         return $_GET[$str];
     }
 }
@@ -56,7 +55,7 @@ function getDataByGET($str = "action") {
  * @return type
  */
 function getDataByPOST($str = "jsonData") {
-    if (is_string($_POST[$str]) || isset($_POST[$str])) {
+    if ( isset($_POST[$str])) {
         return $_POST[$str];
     }
 }
