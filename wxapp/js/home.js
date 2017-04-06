@@ -110,9 +110,9 @@ function loginOrRegister() {
                 text: "取消",
                 className: "default",
                 onClick: function () {
-                    console.log(3)
+                    console.log(3);
                 }
-            }, ]
+            } ]
     });
 }
 
@@ -166,7 +166,7 @@ function goView(key_word, view_val) {
                     case "about_developer":
                         break;
                     case "register":
-
+                        loadScript("js/register.js");
                         break;
                     case "video":
 
