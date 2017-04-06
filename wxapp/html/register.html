@@ -1,53 +1,83 @@
 <div id="register_view">
-	<div class="weui_msg">
-		<div class="weui_icon_area"><img src="images/logo3.png" /></div>
-		<div class="weui_text_area">
-			<div class="weui_cells weui_cells_form">
-				<div class="weui_cell">
-					<div class="weui_cell_hd"><label class="weui_label">手机号码</label></div>
-					<div class="weui_cell_bd weui_cell_primary">
-						<input class="weui_input" type="tel" placeholder="请输入手机号码">
-					</div>
-				</div>
-				<div class="weui_cell">
-					<div class="weui_cell_hd"><label class="weui_label">学号</label></div>
-					<div class="weui_cell_bd weui_cell_primary">
-						<input class="weui_input" type="tel" placeholder="请输入学号">
-					</div>
-				</div>
-				<div class="weui_cell">
-					<div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
-					<div class="weui_cell_bd weui_cell_primary">
-						<input class="weui_input" type="number" placeholder="请输入验证码">
-					</div>
-					<div class="weui_cell_ft">
-						<input type="button" class="weui_btn weui_btn_mini  weui_btn_primary" value="获取" />
-					</div>
-				</div>
-				<div class="weui_cell weui_cells_checkbox">
-					<label class="weui_cell weui_check_label" for="s11">
-    										<div class="weui_cell_hd">
-      											<input type="checkbox" class="weui_check" name="checkbox1" id="s11" checked="checked">
-     												 <i class="weui_icon_checked"></i>
-    										</div>
-    										<div class="weui_cell_bd weui_cell_primary">
-      										<p>我已阅读并同意</p>
-    										</div>
-  										</label>
+    <div class="weui-pull-to-refresh-layer" id="register_view_refresh">
+        <div class="pull-to-refresh-arrow"></div> <!-- 上下拉动的时候显示的箭头 -->
+        <div class="pull-to-refresh-preloader"></div> <!-- 正在刷新的菊花 -->
+        <div class="down">下拉刷新</div><!-- 下拉过程显示的文案 -->
+        <div class="up">释放刷新</div><!-- 下拉超过50px显示的文案 -->
+        <div class="refresh">正在刷新...</div><!-- 正在刷新时显示的文案 -->
+    </div>
+    <div class="weui_msg">
+        <div class="weui_icon_area"><img src="images/logo3.png" alt="?" /></div>
+        <div id="register_form_inputs" class="weui_text_area">
+            <div class="weui_cells weui_cells_form">
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">手机号码</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" placeholder="请输入手机号码">
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">学号</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="tel" placeholder="请输入学号">
+                    </div>
+                </div>
+                <div class="weui_cell">
+                    <div class="weui_cell_hd"><label class="weui_label">验证码</label></div>
+                    <div class="weui_cell_bd weui_cell_primary">
+                        <input class="weui_input" type="number" placeholder="请输入验证码">
+                    </div>
+                    <div class="weui_cell_ft">
+                        <input type="button" class="weui_btn weui_btn_mini weui_btn_primary" value="获取" />
+                    </div>
+                </div>
+                <div class="weui_cell weui_cells_checkbox">
+                    <label class="weui_cell weui_check_label" for="registr_agreement">
+                        <div class="weui_cell_hd">
+                            <input type="checkbox" class="weui_check" name="checkbox1" id="registr_agreement">
+                            <i class="weui_icon_checked"></i>
+                        </div>
+                        <div class="weui_cell_bd weui_cell_primary">
+                            <p>我已阅读并同意</p>
+                        </div>
+                    </label>
                     <samp style="color:blue;" onclick="readRegisterAgreement()">《使用协议》</samp>
-				</div>
+                </div>
 
-			</div>
-		</div>
-		<div class="weui_opr_area">
-			<p class="weui_btn_area">
-				<a href="javascript:;" class="weui_btn weui_btn_primary">注册</a>
-				<a href="javascript:;" class="weui_btn weui_btn_default">返回</a>
-			</p>
-		</div>
-		<!--div class="weui_extra_area">
-			<a href="">查看详情</a>
-		</div--->
-	</div>
+            </div>
+        </div>
+        <div id="register_form_buttons" class="weui_opr_area">
+            <p class="weui_btn_area">
+                <a onclick="closeRegisterAgreement()" class="weui_btn weui_btn_primary">注册</a>
+                <a onclick="registerGoLogin()" class="weui_btn weui_btn_default">返回</a>
+            </p>
+        </div>
+    </div>
+
+    <div id="register_agreement" class="weui_panel" style="display: none;">
+        <article class="weui_article">
+            <section>
+                <h2 class="title">使用协议</h2>
+                <section>
+                    <h3>1、知识产权声明</h3>
+                    <p>本网站，包括(但不仅限于) 文字，内容，软件，录像，音乐，声音，图形，照片，图表，美术设计，图片，名称，
+                        标识，商标和/或服务标志（包括已注册和未注册的），以及其他资料（以下简称网站内容）都受到版权法，
+                        商标法和一切知识产权公约的保护。本网站内容包括奥思网络所有或控制下的内容和第三方所有或控制下，
+                        并授权奥思网络使用的内容。所有代码，文章，讨论等一切构成本网站的元素都可能是受版权保护的作品。
+                        您同意遵守所有适用本网站的版权保护法律法规，以及所有本网站包含的补充性的版权说明或限制。
+                        本网站的内容均由相应的机构/个人上传、维护。对于本站内容的任何使用请遵守内容所附带的授权协议。
+                        如不清楚相应的授权协议请询问上传该内容的机构/个人任何在 git.oschina.net
+                        上注册的账号上传的内容的版权均归上传者所有，上传者承担所有被上传内容的版权责任。
+                        奥思网络有权在其拥有的网站上，展示上传者上传到本网站公共区域的内容。。
+                    </p>
+                </section>
+            </section>
+        </article>
+        <div class="weui_opr_area">
+            <p class="weui_btn_area">
+                <a onclick="closeRegisterAgreement()" class="weui_btn weui_btn_default">返回</a>
+            </p>
+        </div>
+    </div>
 
 </div>

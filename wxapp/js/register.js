@@ -1,15 +1,31 @@
 $(document).ready(function () {
-
+   
+    /*
+     var page2 = $("#register_view");//
+     var hammerPage2 = new Hammer(page2[0]);
+     hammerPage2.get('swipe').set({ direction: Hammer.DIRECTION_ALL });//添加支持上下滑动事件。
+     hammerPage2.on('swipeup swipedown',chuli);*/
 });
-function readRegisterAgreement() {
-    $.confirm({
-        title: "使用协议",
-        text: "广西科技大学官微webapp使用协议：(一) 当司法机关或行政机关依照法定程序和法定职权要求本网站披露个人资料时，我们将依法提供相关资料。对于此情况下的任何披露，本网站均得免责；(二) 对于任何由黑客攻击、计算机病毒侵入或发作、或政府管制而造成的暂时性关闭等影响网站正常运营的不可抗力事件所造成的个人资料的泄露、丢失、被盗用或被篡改等，本网站均得免责；(三) 对于用户将个人密码告知他人或与他人共享注册帐号所导致的任何个人资料泄露，丢失、被盗用或被篡改等,本网站不负任何责任；(四) 对于与本网站链接的任何其它网站的个人资料泄露，丢失、被盗用或被篡改等事件，本网站不负任何责任。网站的更新与变更",
-        onOK: function () {
-            //点击确认
-        },
-        onCancel: function () {
-        }
+
+function chuli() {
+    return  $.alert("滑动了");
+    $("#register_view").pullToRefresh();
+    $("#register_view").on("pull-to-refresh", function () {
+        alert("下拉更新了！");
+        setTimeout("$(\"#register_view\").pullToRefreshDone();", 3000);
     });
 }
- 
+
+function readRegisterAgreement() {
+    $("#register_form_inputs, #register_form_buttons").hide();
+    $("#register_agreement").show();
+}
+function closeRegisterAgreement() {
+    $("#register_agreement").hide();
+    $("#register_form_inputs, #register_form_buttons").show();
+    
+}
+
+function registerGoLogin(){
+    loginOrRegister();
+}
