@@ -56,8 +56,7 @@ class ServiceController implements IServiceController {
     /**
      * 更新成绩数据，并返回成绩
      */
-    function upDateScore() {
-        $loginUser = new LoginUser(array("201300406179","king","小耀","123456"));
+    function upDateScore() {      
         rJsonMsg($loginUser->getRealName());
         $scoreData = new ScoreData();
         $score = $scoreData->run();

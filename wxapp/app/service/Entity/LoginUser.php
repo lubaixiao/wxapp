@@ -28,3 +28,4 @@ class LoginUser {
     }
 
 }
+$loginUser = new LoginUser(array("201300406179","king","小耀","123456"));

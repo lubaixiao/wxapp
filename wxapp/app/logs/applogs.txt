@@ -249,3 +249,46 @@
 2017-04-01 09:57:54 msg:  service!
 2017-04-01 09:57:54 msg:  getScore
 2017-04-01 09:57:54 msg:  service!
+2017-04-01 20:51:09 msg:  getHtml
+2017-04-01 20:51:09 msg:  service!
+2017-04-01 20:51:13 msg:  getHtml
+2017-04-01 20:51:13 msg:  service!
+2017-04-01 20:51:14 msg:  getScore
+2017-04-01 20:51:14 msg:  sqlconf加载
+2017-04-01 20:51:14 msg:  Conn加载
+2017-04-01 20:51:14 msg:  StudentScore加载
+2017-04-01 20:51:14 msg:  service!
+2017-04-01 20:51:14 msg:  exception 'PDOException' with message 'SQLSTATE[HY000] [2000] mysqlnd cannot connect to MySQL 4.1+ using the old insecure authentication. Please use an administration tool to reset your password with the command SET PASSWORD = PASSWORD('your_existing_password'). This will store a new, and more secure, hash value in mysql.user. If this user is used in other scripts executed by PHP 5.2 or earlier you might need to remove the old-passwords flag from your my.cnf file' in D:\xampp\htdocs\wxapp\wxapp\app\dao\Conn.php:14
+Stack trace:
+#0 D:\xampp\htdocs\wxapp\wxapp\app\dao\Conn.php(14): PDO->__construct('mysql:host=qdm1...', 'qdm164809401', '15994551509bai')
+#1 D:\xampp\htdocs\wxapp\wxapp\app\dao\BaseDaoImpl.php(18): Conn->getPdo()
+#2 D:\xampp\htdocs\wxapp\wxapp\app\dao\StudentScoreDAO.php(17): BaseDaoImpl->__construct()
+#3 D:\xampp\htdocs\wxapp\wxapp\app\service\ServiceController.php(49): StudentScoreDAO->__construct()
+#4 D:\xampp\htdocs\wxapp\wxapp\app\wxApp.php(51): ServiceController->getScore()
+#5 D:\xampp\htdocs\wxapp\wxapp\webAction.php(7): wxApp->run()
+#6 {main}
+2017-04-01 20:55:32 msg:  upDateScore
+2017-04-01 20:55:32 msg:  sqlconf加载
+2017-04-01 20:55:32 msg:  Conn加载
+2017-04-01 20:55:32 msg:  StudentScore加载
+2017-04-01 20:55:32 msg:  service!
+2017-04-01 20:58:50 msg:  upDateScore
+2017-04-01 20:58:50 msg:  sqlconf加载
+2017-04-01 20:58:50 msg:  Conn加载
+2017-04-01 20:58:50 msg:  StudentScore加载
+2017-04-01 20:58:50 msg:  service!
+2017-04-01 20:59:49 msg:  upDateScore
+2017-04-01 20:59:49 msg:  sqlconf加载
+2017-04-01 20:59:49 msg:  Conn加载
+2017-04-01 20:59:49 msg:  StudentScore加载
+2017-04-01 20:59:49 msg:  service!
+2017-04-01 20:59:51 msg:  upDateScore
+2017-04-01 20:59:51 msg:  sqlconf加载
+2017-04-01 20:59:51 msg:  Conn加载
+2017-04-01 20:59:51 msg:  StudentScore加载
+2017-04-01 20:59:51 msg:  service!
+2017-04-06 20:18:33 msg:  upDateScore
+2017-04-06 20:18:33 msg:  sqlconf加载
+2017-04-06 20:18:33 msg:  Conn加载
+2017-04-06 20:18:33 msg:  StudentScore加载
+2017-04-06 20:18:33 msg:  service!
